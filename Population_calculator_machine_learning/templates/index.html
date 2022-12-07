@@ -9,12 +9,28 @@
   <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="../static/css/style.css">
-    
+
 </head>
 
 <body>
  <div class="login">
+  <option value=""></option>
 	<h1>Population Prediction</h1>
+  <form action="" name="RegionForm">
+    <div class="col-md-10 form-group" style="text-align: center">
+      <label><b>Select the Region:</b> </label><br>
+      <select id="level1" name="region" required="1">
+        <option value="" >Select</option>
+      </select>
+  </div>
+  <div class="col-md-10 form-group" style="text-align: center">
+      <label><b>Select the area:</b> </label><br>
+      <select class="selectpicker form-control" id="level2" name="area" required="1">
+        <option value="" >Select</option>
+      </select>
+  </div>
+ 
+  </form>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
@@ -25,10 +41,14 @@
 
    <br>
    <br>
-   {{ prediction_text }}
+   <div class="prediction_text">
+    {{ prediction_text }}
+   </div>
+   
 
  </div>
-
-
+ 
+ </script>
+ <script src="./data.js"></script>
 </body>
 </html>
